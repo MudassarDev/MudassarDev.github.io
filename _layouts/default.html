@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US" class="scheme_original">
+
+            <!-- Head Include-->
+            {% include head.html %}
+   <body class="body_style_wide responsive_menu scheme_original top_panel_show sidebar_hide">
+      <div class="body_wrap">
+         <div class="page_wrap">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original">
+               <div class="header-bg">
+                  <!--Header Navbar Include-->
+                  {% include navbar.html %}
+
+                  <!--Top Bar Includes-->
+                  {% if page.url == "/" %}
+                  {% include homebar.html %}
+                  {% else %}
+                  {% include listingsBar.html %}
+                  {% endif %}
+               </div>
+
+            </header>
+            {{content}}
+            <!--Featured Section Include-->
+            {% include featured.html %}
+
+            <!--Contact Footer Include-->
+            {% include contactFooter.html %}
+
+            <!--Monogram Footer Include-->
+            {% include monoFooter.html %}
+         </div>
+      </div>
+
+            <!--Footer Links-->
+            {% include footerLinks.html %}
+</html>
