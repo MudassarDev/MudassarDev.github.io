@@ -15,7 +15,6 @@ title: PROPERTIES FOR SALE
                         <a href="{{ site.baseurl }}{{ post.url }}">
                            <div class="property_price_box">
                               <span class="property_price_box_sign">Rs </span><span class="property_price_box_price">{{ post.price }}</span>{% if post.categories contains "plot" %}<span class="property_price_box_per">/Marla</span>{% endif %}
-                              {% if post.front %}<span class="icon-floor_plan">{{ post.front }}</span>{% endif %}
                            </div>
                            <img alt="" src="{{ site.baseurl }}/images/image-7-1-770x460.jpg">
                         </a>
@@ -40,6 +39,7 @@ title: PROPERTIES FOR SALE
                         {% if post.beds %}<span class="icon-bed">{{ post.beds }}</span>{% endif %}
                         {% if post.baths %}<span class="icon-bath">{{ post.baths }}</span>{% endif %}
                         {% if post.workshops %}<span class="icon-warehouse">{{ post.workshops }}</span>{% endif %}
+                        {% if post.front %}<span class="icon-floor_plan">{{ post.front }}</span>{% endif %}
                      </div>
                   </div>
                </div>
