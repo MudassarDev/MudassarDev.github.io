@@ -17,7 +17,7 @@
                      Property ID: 20055, House. 
                   </div>
                   -->
-                  <div class="property_price_box"><span class="property_price_box_sign">Rs </span><span class="property_price_box_price">{{ page.price }}</span></div>
+                  <div class="property_price_box"><span class="property_price_box_sign">Rs </span><span class="property_price_box_price">{{ page.price }}</span>{% if post.categories contains "plot" and post.permarla %}<span class="property_price_box_per"> /Marla</span>{% endif %}{% if post.categories contains "rent" %}<span class="property_price_box_per"> /Month</span>{% endif %}</div>
                   <div class="sc_property_info_list">
                      <span class="icon-area_2">{{ page.area }}</span>{% if page.front %}<span class="icon-floor_plan">{{ page.front }}</span>{% endif %}{% if page.beds %}<span class="icon-bed">{{ page.beds }}</span>{% endif %}
                      {% if page.baths %}<span class="icon-bath">{{ page.baths }}</span>{% endif %}{% if page.workshops %}<span class="icon-warehouse">{{ page.workshops }}</span>{% endif %}

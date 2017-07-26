@@ -14,7 +14,7 @@ title: PROPERTIES ON RENT
                      <div class="sc_property_image">
                         <a href="{{ site.baseurl }}{{ post.url }}">
                            <div class="property_price_box">
-                              <span class="property_price_box_sign">PKR</span><span class="property_price_box_price">{{ post.price }}</span><span class="property_price_box_per">/year</span>
+                              <span class="property_price_box_sign">PKR</span><span class="property_price_box_price">{{ post.price }}</span><span class="property_price_box_per">/Month</span>
                            </div>
                            <img alt="" src="{{ site.baseurl }}/images/image-7-1-770x460.jpg">
                         </a>
@@ -36,9 +36,10 @@ title: PROPERTIES ON RENT
                      </div>
                      <div class="sc_property_info_list">
                         <span class="icon-building113">{{ post.area }}</span>
-                        <span class="icon-bed">{{ post.beds }}</span>
-                        <span class="icon-bath">{{ post.baths }}</span>
-                        <span class="icon-warehouse">{{ post.workshops }}</span>
+                        {% if post.beds %}<span class="icon-bed">{{ post.beds }}</span>{% endif %}
+                        {% if post.baths %}<span class="icon-bath">{{ post.baths }}</span>{% endif %}
+                        {% if post.workshops %}<span class="icon-warehouse">{{ post.workshops }}</span>{% endif %}
+                        {% if post.front %}<span class="icon-floor_plan">{{ post.front }}</span>{% endif %}
                      </div>
                   </div>
                </div>
