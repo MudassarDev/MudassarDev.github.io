@@ -7,5 +7,3 @@ tagline: "Mudassar Developers"
 
 #Build Settings
 markdown: kramdown
-paginate: 9
-paginate_path: '/listings/page:num/'
