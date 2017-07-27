@@ -8,7 +8,8 @@
                   <div id = "featuredProp1" class="sc_property_item">
                      <div class="sc_property_image">
                         <a href="{{ site.baseurl }}{{ post.url }}">
-                           <div class="property_price_box"><span class="property_price_box_sign">Rs </span><span class="property_price_box_price">{{ post.price }}</span>{% if post.categories contains "rent" %}<span class="property_price_box_per"> /year</span>{% endif %}
+                           <div class="property_price_box"><span class="property_price_box_sign">Rs </span><span class="property_price_box_price">{{ post.price }}</span>{% if post.categories contains "rent" %}<span class="property_price_box_per"> /Month</span>{% endif %}
+                           {% if post.permarla %}<span class="property_price_box_per"> /Marla</span>{% endif %}
                            </div>
                            <img src = "{{ site.baseurl }}/images/image-7-1-770x460.jpg" alt="">
                         </a>
