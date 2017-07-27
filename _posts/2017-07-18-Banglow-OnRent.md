@@ -1,11 +1,11 @@
 ---
 layout: post
-categories: [rent, house, banglow]
-title: "Single Storey Banglow"
+categories: [rent, house, bungalow]
+title: "Single Storey Bungalow"
 price: "60000"
 front: "12 Rooms"
 baths: "6"
 address: "Near Ahmad Center, Suraj Miani Road"
-type: "BANGLOW ON RENT"
+type: "Bungalow ON RENT"
 area: "1.5 Kanal"
 ---

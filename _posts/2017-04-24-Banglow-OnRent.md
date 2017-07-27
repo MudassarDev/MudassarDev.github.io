@@ -1,13 +1,13 @@
 ---
 layout: post
-categories: [rent, house, banglow]
-title: "Single Storey Banglow"
+categories: [rent, house, bungalow]
+title: "Single Storey Bungalow"
 price: "25000"
 front: "1 Room"
 beds: "3"
 baths: "1"
 workshops: "Kitchen, TV Lounge"
 address: "Muhalla Ameer Abad"
-type: "BANGLOW ON RENT"
+type: "Bungalow ON RENT"
 area: "12 Marla"
 ---

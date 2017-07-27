@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: [rent, house, banglow]
-title: "Banglow's Upper Portion"
+categories: [rent, house, bungalow]
+title: "Bungalow's Upper Portion"
 price: "25000"
 front: "3 Rooms"
 workshops: "Kitchen, TV Lounge"

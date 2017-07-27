@@ -1,11 +1,11 @@
 ---
 layout: post
-categories: [sale, house, banglow]
-title: "Double Storey Banglow"
+categories: [sale, house, bungalow]
+title: "Double Storey Bungalow"
 price: " --- "
 beds: "2"
 front: "2 Rooms"
 address: "Ilyas Colony"
-type: "BANGLOW FOR SALE"
+type: "Bungalow FOR SALE"
 area: "6 Marla"
 ---

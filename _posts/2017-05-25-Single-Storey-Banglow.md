@@ -1,12 +1,12 @@
 ---
 layout: post
-categories: [sale, house, banglow]
-title: "Single Storey Banglow"
+categories: [sale, house, bungalow]
+title: "Single Storey Bungalow"
 price: " --- "
 front: "4 Rooms"
 baths: "1"
 workshops: "Servent Quarter"
 address: "Shahid Colony, Near MDA Chowk"
-type: "BANGLOW FOR SALE"
+type: "Bungalow FOR SALE"
 area: "30 Marla"
 ---

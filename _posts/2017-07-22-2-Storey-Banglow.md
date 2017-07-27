@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: [sale, house]
-title: "Double Storey Banglow"
+categories: [sale, house, bungalow]
+title: "Double Storey Bungalow"
 price: "65 Lac"
 front: "6 Rooms"
 baths: "3"
