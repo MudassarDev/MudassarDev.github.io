@@ -6,4 +6,5 @@ price: "65 Lac"
 address: "Lodhy Chowk"
 type: "Bungalow FOR SALE"
 area: "5 Marla"
+detail1: " 5-10 Years Old"
 ---

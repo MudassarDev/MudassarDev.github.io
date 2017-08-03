@@ -7,4 +7,5 @@ permarla: "yes"
 address: "Al Fahad Town"
 type: "PLOT FOR SALE"
 area: "10 Marla"
+detail1: "With Boundary Wall"
 ---

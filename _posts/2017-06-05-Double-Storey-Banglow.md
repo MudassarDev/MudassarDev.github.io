@@ -8,4 +8,5 @@ baths: "4"
 address: "Mehrban Colony"
 type: "BANGLOW FOR SALE"
 area: "1 Kanal"
+detail1: "12 ft. Roof"
 ---

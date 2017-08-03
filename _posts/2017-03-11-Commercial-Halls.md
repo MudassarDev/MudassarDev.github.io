@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [sale, hall]
+categories: [sale, hall, plot]
 title: "Commercial Halls"
 price: " --- "
 address: "Near Allah Wasaya Textile Mills"
