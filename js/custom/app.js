@@ -8,6 +8,6 @@
                   var marker = new google.maps.Marker({
                     position: office,
                     map: map,
-                    icon: 'https://mudassardev.github.io/images/office-pin'
+                    icon: 'https://mudassardev.github.io/images/office-pin.png'
                   });
                 }
