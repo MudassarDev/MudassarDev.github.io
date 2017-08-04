@@ -8,5 +8,6 @@
                   var marker = new google.maps.Marker({
                     position: office,
                     map: map,
+                    icon: '{{ site.baseurl }}/images/office-pin'
                   });
                 }
