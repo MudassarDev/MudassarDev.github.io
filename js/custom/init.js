@@ -1957,3 +1957,10 @@ function date_time() {
 	jQuery('.custom_form_slider_item .cfs_time').appendTo('.custom_form_slider_item .cfs_date_time');
 	
 }
+
+// Scroll Function
+function scrollme(theid){
+$('html, body').animate({
+    scrollTop: $(theid).offset().top
+}, 1000);
+}

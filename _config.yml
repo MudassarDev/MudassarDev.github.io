@@ -1,9 +1,0 @@
-# Site Settings
-title: MUDASSAR DEVELOPERS
-description: "Mudassar Developers Website based on Jekyll"
-baseurl: "https://mudassardev.github.io"
-url: ""
-tagline: "Mudassar Developers"
-
-#Build Settings
-markdown: kramdown
