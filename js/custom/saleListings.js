@@ -17,6 +17,10 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
           column13.onclick = function(){
             var modal = document.getElementById('myModal');
             modal.style.display = "block";
+            var htmloflisting = this.innerHTML;
+            document.getElementById('clickedListing').innerHTML = htmloflisting;
+            var propertyItem = document.getElementById('clickedListing').firstChild.firstChild;
+            propertyItem.removeChild(document.getElementById('clickedListing').firstChild.firstChild.firstChild);
             return false;
           }
 

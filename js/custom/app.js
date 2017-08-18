@@ -17,95 +17,99 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
   column13.onclick = function(){
     var modal = document.getElementById('myModal');
     modal.style.display = "block";
+    var htmloflisting = this.innerHTML;
+    document.getElementById('clickedListing').innerHTML = htmloflisting;
+    var propertyItem = document.getElementById('clickedListing').firstChild.firstChild;
+    propertyItem.removeChild(document.getElementById('clickedListing').firstChild.firstChild.firstChild);
     return false;
   }
 
-          //Second div having class sc_property_item
-          var scProperty = document.createElement('div');
-          scProperty.className = 'sc_property_item';
-          column13.appendChild(scProperty);
+    //Second div having class sc_property_item
+    var scProperty = document.createElement('div');
+    scProperty.className = 'sc_property_item';
+    column13.appendChild(scProperty);
 
-          //Details
-          var info = document.createElement('div');
-          info.className = 'sc_property_info';
-          scProperty.appendChild(info);
+    //Details
+    var info = document.createElement('div');
+    info.className = 'sc_property_info';
+    scProperty.appendChild(info);
 
-          //Description
-          var description = document.createElement('div');
-          description.className = 'sc_property_description';
-          info.appendChild(description);
-          description.innerText = putChildData.type;
+    //Description
+    var description = document.createElement('div');
+    description.className = 'sc_property_description';
+    info.appendChild(description);
+    description.innerText = putChildData.type;
 
-          //Not empty div
-          var empty = document.createElement('div');
-          empty.className = 'sc_listing_content';
-          info.appendChild(empty);
+    //Not empty div
+    var empty = document.createElement('div');
+    empty.className = 'sc_listing_content';
+    info.appendChild(empty);
 
-          //icon
-          var icon = document.createElement('div');
-          icon.className = 'sc_property_icon';
-          empty.appendChild(icon);
+    //icon
+    var icon = document.createElement('div');
+    icon.className = 'sc_property_icon';
+    empty.appendChild(icon);
 
-          //Icon Location
-          var iconLocation = document.createElement('span');
-          iconLocation.className = 'icon-location';
-          icon.appendChild(iconLocation);
+    //Icon Location
+    var iconLocation = document.createElement('span');
+    iconLocation.className = 'icon-location';
+    icon.appendChild(iconLocation);
 
-          //Title
-          var title = document.createElement('div');
-          title.className = 'sc_property_title';
-          empty.appendChild(title);
+    //Title
+    var title = document.createElement('div');
+    title.className = 'sc_property_title';
+    empty.appendChild(title);
 
-          //Address1
-          var address1 = document.createElement('div');
-          address1.className = 'sc_property_title_address_1';
-          title.appendChild(address1);
-          address1.innerText = putChildData.name;
+    //Address1
+    var address1 = document.createElement('div');
+    address1.className = 'sc_property_title_address_1';
+    title.appendChild(address1);
+    address1.innerText = putChildData.name;
 
-          //link
-          var address1Link = document.createElement('a');
-          address1Link.href = 'property_detail.html';
-          address1.appendChild(address1Link);
+    //link
+    var address1Link = document.createElement('a');
+    address1Link.href = 'property_detail.html';
+    address1.appendChild(address1Link);
 
-          //Address 2
-          var address2 = document.createElement('div');
-          address2.className = 'sc_property_title_address_2';
-          title.appendChild(address2);
-          address2.innerText = putChildData.address;
+    //Address 2
+    var address2 = document.createElement('div');
+    address2.className = 'sc_property_title_address_2';
+    title.appendChild(address2);
+    address2.innerText = putChildData.address;
 
-          //Price Box
-          var priceBox = document.createElement('div');
-          priceBox.className = 'property_price_box';
-          info.appendChild(priceBox);
+    //Price Box
+    var priceBox = document.createElement('div');
+    priceBox.className = 'property_price_box';
+    info.appendChild(priceBox);
 
-          //Price Unit
-          var unitTag = document.createElement('span');
-          unitTag.className = 'property_price_box_sign';
-          priceBox.appendChild(unitTag);
-          unitTag.innerText = "PKR";
+    //Price Unit
+    var unitTag = document.createElement('span');
+    unitTag.className = 'property_price_box_sign';
+    priceBox.appendChild(unitTag);
+    unitTag.innerText = "PKR";
 
-          //Price Amount
-          var amount = document.createElement('span');
-          amount.className = 'property_price_box_price';
-          priceBox.appendChild(amount);
-          // Price in the Price Box (From Database)
-          amount.innerText = putChildData.price;
+    //Price Amount
+    var amount = document.createElement('span');
+    amount.className = 'property_price_box_price';
+    priceBox.appendChild(amount);
+    // Price in the Price Box (From Database)
+    amount.innerText = putChildData.price;
 
-          //Line
-          var line = document.createElement('div');
-          line.className = 'cL';
-          empty.appendChild(address2);
+    //Line
+    var line = document.createElement('div');
+    line.className = 'cL';
+    empty.appendChild(address2);
 
-          //Info List
-          var infoList = document.createElement('div');
-          infoList.className = 'sc_property_info_list';
-          scProperty.appendChild(infoList);
+    //Info List
+    var infoList = document.createElement('div');
+    infoList.className = 'sc_property_info_list';
+    scProperty.appendChild(infoList);
 
-          //Area
-          var areaIcon = document.createElement('span');
-          areaIcon.className = 'icon-building113';
-          infoList.appendChild(areaIcon);
-          areaIcon.innerText = putChildData.area;
+    //Area
+    var areaIcon = document.createElement('span');
+    areaIcon.className = 'icon-building113';
+    infoList.appendChild(areaIcon);
+    areaIcon.innerText = putChildData.area;
 }
 
 function showsalelistings(saletype, sectionid){
@@ -138,8 +142,6 @@ function showsalelistings(saletype, sectionid){
 
 //Modal Behaviuor
 var modal = document.getElementById('myModal');
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
@@ -237,11 +239,23 @@ function initMap() {
               infowindow.setContent(contentString);
               infowindow.open(listingsMap, listingmarker);
 
+              //Modal Behaviuor
               document.getElementById('info_window_title').onclick = function(){
-              var modal = document.getElementById('myModal');
+              var modal = document.getElementById('myModal_2');
               modal.style.display = "block";
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                  }
+              }
               return false;
               }
+
           }
       } else if (propertyPinType == 'houseForSale'){
             var query = firebase.database().ref(propertyPinType);
@@ -302,9 +316,20 @@ function initMap() {
               infowindow.setContent(contentString);
               infowindow.open(listingsMap, listingmarker);
 
+              //Modal Behaviuor
               document.getElementById('info_window_title').onclick = function(){
-              var modal = document.getElementById('myModal');
+              var modal = document.getElementById('myModal_2');
               modal.style.display = "block";
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                  }
+              }
               return false;
               }
           }
@@ -367,9 +392,20 @@ function initMap() {
               infowindow.setContent(contentString);
               infowindow.open(listingsMap, listingmarker);
 
+              //Modal Behaviuor
               document.getElementById('info_window_title').onclick = function(){
-              var modal = document.getElementById('myModal');
+              var modal = document.getElementById('myModal_2');
               modal.style.display = "block";
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                  }
+              }
               return false;
               }
           }    
@@ -432,9 +468,20 @@ function initMap() {
               infowindow.setContent(contentString);
               infowindow.open(listingsMap, listingmarker);
 
+              //Modal Behaviuor
               document.getElementById('info_window_title').onclick = function(){
-              var modal = document.getElementById('myModal');
+              var modal = document.getElementById('myModal_2');
               modal.style.display = "block";
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                  }
+              }
               return false;
               }
           }    
@@ -497,11 +544,22 @@ function initMap() {
               infowindow.setContent(contentString);
               infowindow.open(listingsMap, listingmarker);
 
+              //Modal Behaviuor
               document.getElementById('info_window_title').onclick = function(){
-              var modal = document.getElementById('myModal');
+              var modal = document.getElementById('myModal_2');
               modal.style.display = "block";
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                  }
+              }
               return false;
-            }
+              }
           }
         }            
       //Change infowindow background style
