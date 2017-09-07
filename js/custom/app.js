@@ -16,11 +16,25 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
   //Element's onclick behaviour
   column13.onclick = function(){
     var modal = document.getElementById('myModal');
+    document.getElementById('clickedListing').innerHTML = '';
     modal.style.display = "block";
-    var htmloflisting = this.innerHTML;
-    document.getElementById('clickedListing').innerHTML = htmloflisting;
-    var propertyItem = document.getElementById('clickedListing').firstChild.firstChild;
-    propertyItem.removeChild(document.getElementById('clickedListing').firstChild.firstChild.firstChild);
+
+    var clickedListingTitle = this.getElementsByClassName('sc_property_title_address_1')[0].innerHTML;
+    var titleForModal = document.createElement('h4');
+    titleForModal.innerText = clickedListingTitle;
+    document.getElementById('clickedListing').appendChild(titleForModal);
+
+    var clickedListingAddress = this.getElementsByClassName('sc_property_title_address_2')[0].innerHTML;
+    var addressForModal = document.createElement('p');
+    addressForModal.innerText = clickedListingAddress;
+    document.getElementById('clickedListing').appendChild(addressForModal);
+
+    var clickedListingPrice = this.getElementsByClassName('property_price_box_price')[0].innerHTML;
+    var clickedListingPriceSign = this.getElementsByClassName('property_price_box_sign')[0].innerHTML;
+    var priceForModal = document.createElement('h5');
+    priceForModal.innerHTML = clickedListingPriceSign + ' ' + clickedListingPrice;
+    document.getElementById('clickedListing').appendChild(priceForModal);
+    
     return false;
   }
 
@@ -65,11 +79,6 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
     address1.className = 'sc_property_title_address_1';
     title.appendChild(address1);
     address1.innerText = putChildData.name;
-
-    //link
-    var address1Link = document.createElement('a');
-    address1Link.href = 'property_detail.html';
-    address1.appendChild(address1Link);
 
     //Address 2
     var address2 = document.createElement('div');
@@ -173,7 +182,7 @@ function initMap() {
 
 //Listings Map
     var listingsMap = new google.maps.Map(document.getElementById('listingsMap'), {
-      zoom: 14,
+      zoom: 13,
       center: {lat: 30.209599, lng: 71.449949}
     });
 
@@ -584,3 +593,88 @@ function initMap() {
 window.onload = function(){
   showsalelistings('featured', 'featured_listings_column');
 }
+
+var observer = new MutationObserver(function(mutations) {
+  document.querySelector('.loader').style.display = 'none';
+ });
+ observer.observe(document.querySelector('#featured_listings_column'), { childList: true });
+
+// Test Form Logic
+// Input Lock
+$('textarea').blur(function () {
+  $('#hire textarea').each(function () {
+      $this = $(this);
+      if ( this.value != '' ) {
+        $this.addClass('focused');
+        $('textarea + label + span').css({'opacity': 1});
+      }
+      else {
+        $this.removeClass('focused');
+        $('textarea + label + span').css({'opacity': 0});
+      }
+  });
+});
+
+$('#hire .field:first-child input').blur(function () {
+  $('#hire .field:first-child input').each(function () {
+      $this = $(this);
+      if ( this.value != '' ) {
+        $this.addClass('focused');
+        $('.field:first-child input + label + span').css({'opacity': 1});
+      }
+      else {
+        $this.removeClass('focused');
+        $('.field:first-child input + label + span').css({'opacity': 0});
+      }
+  });
+});
+
+$('#hire .field:nth-child(2) input').blur(function () {
+  $('#hire .field:nth-child(2) input').each(function () {
+      $this = $(this);
+      if ( this.value != '' ) {
+        $this.addClass('focused');
+        $('.field:nth-child(2) input + label + span').css({'opacity': 1});
+      }
+      else {
+        $this.removeClass('focused');
+        $('.field:nth-child(2) input + label + span').css({'opacity': 0});
+      }
+  });
+});
+
+document.querySelector('#query_form').addEventListener('submit', onSubmission);
+
+var formRef = firebase.database().ref('FormFills');
+
+function getInput(id){
+  return document.querySelector(id).value;
+}
+
+function saveQuery(pName, pEmail, pMsg){
+  var pushQuery = formRef.push();
+  pushQuery.set({
+      name: pName,
+      email: pEmail,
+      messege: pMsg
+  });
+}
+
+function onSubmission(e){
+  e.preventDefault();
+
+  var formName = getInput('#name');
+  var formEmail = getInput('#email');
+  var formMsg = getInput('#msg');
+
+  saveQuery(formName, formEmail, formMsg);
+
+  console.log(formName);
+
+  formRef.once("child_added", function(snapshot) {
+    document.querySelector('#query_form').style.display = 'none';
+    document.querySelector('#success_message').style.display = 'block';
+  });
+}
+
+

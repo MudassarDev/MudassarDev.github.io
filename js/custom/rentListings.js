@@ -16,11 +16,25 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
           //Element's onclick behaviour
           column13.onclick = function(){
             var modal = document.getElementById('myModal');
+            document.getElementById('clickedListing').innerHTML = '';
             modal.style.display = "block";
-            var htmloflisting = this.innerHTML;
-            document.getElementById('clickedListing').innerHTML = htmloflisting;
-            var propertyItem = document.getElementById('clickedListing').firstChild.firstChild;
-            propertyItem.removeChild(document.getElementById('clickedListing').firstChild.firstChild.firstChild);
+        
+            var clickedListingTitle = this.getElementsByClassName('sc_property_title_address_1')[0].innerHTML;
+            var titleForModal = document.createElement('h4');
+            titleForModal.innerText = clickedListingTitle;
+            document.getElementById('clickedListing').appendChild(titleForModal);
+        
+            var clickedListingAddress = this.getElementsByClassName('sc_property_title_address_2')[0].innerHTML;
+            var addressForModal = document.createElement('p');
+            addressForModal.innerText = clickedListingAddress;
+            document.getElementById('clickedListing').appendChild(addressForModal);
+        
+            var clickedListingPrice = this.getElementsByClassName('property_price_box_price')[0].innerHTML;
+            var clickedListingPriceSign = this.getElementsByClassName('property_price_box_sign')[0].innerHTML;
+            var priceForModal = document.createElement('h5');
+            priceForModal.innerHTML = clickedListingPriceSign + ' ' + clickedListingPrice;
+            document.getElementById('clickedListing').appendChild(priceForModal);
+            
             return false;
           }
 
@@ -65,11 +79,6 @@ function populateListings(thisIsSaleType, putChildData, IDofSection){
               address1.className = 'sc_property_title_address_1';
               title.appendChild(address1);
               address1.innerText = putChildData.name;
-
-              //link
-              var address1Link = document.createElement('a');
-              address1Link.href = 'property_detail.html';
-              address1.appendChild(address1Link);
 
               //Address 2
               var address2 = document.createElement('div');
@@ -162,3 +171,13 @@ window.onload = function(){
   showRentlistings('onRent', 'listings_column');
   showRentlistings('featured', 'featured_listings_column');
 }
+
+var Observer = new MutationObserver(function(mutations) {
+  document.querySelectorAll('.loader')[0].style.display = 'none';
+});
+Observer.observe(document.querySelector('#listings_column'), { childList: true });
+
+var featuredObserver = new MutationObserver(function(mutations) {
+  document.querySelectorAll('.loader')[1].style.display = 'none';
+});
+featuredObserver.observe(document.querySelector('#featured_listings_column'), { childList: true });
